@@ -1,0 +1,13 @@
+<div class="d-flex justify-content-center">
+  <div class="d-flex flex-column">
+    <p>main works!</p>
+    <h2 *ngIf="isAutheticated()"> {{username}} is Connected</h2>
+    <p> token expiration due to {{expiration | date:'medium'}} yeah it's after 10 days</p>
+    <a href="#" class="btn btn-info btn-lg" *ngIf="isAutheticated()" (click)="logOut()">
+      <fa-icon icon="sign-out-alt"></fa-icon> Log out
+    </a>
+  </div>
+</div>
+
+
+
