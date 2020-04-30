@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from "@angular/common/http";
-import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
-import {AccessModule} from "./access/access.module";
-import {MainModule} from "./main/main.module";
+import { HttpClientModule } from "@angular/common/http";
+import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
+import { AccessModule } from "./access/access.module";
+import { MainModule } from "./main/main.module";
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';

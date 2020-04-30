@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {JwtHelperService} from "@auth0/angular-jwt";
+import { HttpClient } from "@angular/common/http";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  host2:string="http://localhost:8080"
-  jwt:string ;
-  username:string ;
-  name:string;
-  expiration:Date;
-  roles:string[] ;
+  host2: string = "http://localhost:8080"
+  jwt: string;
+  username: string;
+  name: string;
+  expiration: Date;
+  roles: string[];
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  login(data){
-    return this.http.post(this.host2+"/login",data,{observe:'response'});
+  login(data) {
+    return this.http.post(this.host2 + "/login", data, { observe: 'response' });
   }
   saveToken(jwt: string) {
-    localStorage.setItem("token",jwt)
-    this.jwt=jwt;
+    localStorage.setItem("token", jwt)
+    this.jwt = jwt;
     this.parseJWT();
   }
 
@@ -30,18 +30,18 @@ export class AuthenticationService {
     const jwtObject = jwtHelperService.decodeToken(this.jwt); // on transfere les info dans un object
     this.username = jwtObject.sub;
     this.name = jwtObject.sub;
-    this.roles =jwtObject.roles;
+    this.roles = jwtObject.roles;
     this.expiration = jwtHelperService.getTokenExpirationDate(this.jwt);
     console.log(jwtObject);
   }
 
-  isAdmin(){
-    return this.roles.indexOf('ADMIN')>=0;
+  isAdmin() {
+    return this.roles.indexOf('ADMIN') >= 0;
   }
-  isUser(){
-    return this.roles.indexOf('USER')>=0;
+  isUser() {
+    return this.roles.indexOf('USER') >= 0;
   }
-  isAuthenticated(){
+  isAuthenticated() {
     return this.roles && (this.isAdmin() || this.isUser());
   }
   loadToken() {
@@ -52,9 +52,9 @@ export class AuthenticationService {
     localStorage.removeItem('token');
     this.initParams();
   }
-  initParams(){
+  initParams() {
     this.jwt = undefined;
-    this.username=undefined;
+    this.username = undefined;
     this.roles = undefined;
   }
 }
