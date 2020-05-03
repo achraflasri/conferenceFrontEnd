@@ -6,17 +6,21 @@
         <mat-card-title>Log in</mat-card-title>
       </mat-card-header>
       <div class="form_content">
-        <form #f="ngForm" (ngSubmit)="onLogin(f.value)" class="example-form">
+        <form (ngSubmit)="onLogin(form.value)" class="example-form" [formGroup]="form">
 
           <mat-card-content>
             <mat-form-field class="example-full-width">
               <mat-label>Username</mat-label>
-              <input type='text' matInput name="username" ngModel>
+              <input type='text' matInput formControlName="username" [errorStateMatcher]="usernameErrorMatcher" ngModel>
+              <mat-error>Error: {{ getErrorMessage('username') }}
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field class="example-full-width">
               <mat-label>Password</mat-label>
-              <input type='password' matInput name="password" ngModel>
+              <input type='password' matInput formControlName="password" [errorStateMatcher]="passwordErrorMatcher"
+                ngModel>
+              <mat-error>Error: {{ getErrorMessage('password') }}</mat-error>
             </mat-form-field>
           </mat-card-content>
 

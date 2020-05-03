@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from "../../authentication.service";
 import { Router } from "@angular/router";
+import { ErrorStateMatcher } from '@angular/material/core';
+import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-login',
@@ -8,6 +12,37 @@ import { Router } from "@angular/router";
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  form = new FormGroup(
+    {
+      username: new FormControl('', Validators.minLength(2)),
+      password: new FormControl('', Validators.minLength(2))
+    }
+  );
+  usernameErrorMatcher = {
+    isErrorState: (control: FormControl): boolean => {
+      const controlInvalid = control.touched && control.invalid;
+      const formInvalid = control.touched && this.form.invalid;
+      return controlInvalid || formInvalid;
+    }
+  }
+  passwordErrorMatcher = {
+    isErrorState: (control: FormControl): boolean => {
+      const controlInvalid = control.touched && control.invalid;
+      const formInvalid = control.touched && this.form.invalid;
+      return controlInvalid || formInvalid;
+    }
+  }
+
+
+  getErrorMessage(controlName: string) {
+    if (this.form.controls[controlName].hasError('minlength')) {
+      return 'Must be at least 2 characters'
+    }
+    else if (this.form.controls[controlName].hasError('required')) {
+      return controlName + ' is Required'
+    }
+
+  }
   role: boolean;
 
   constructor(private authenticationService: AuthenticationService,
@@ -16,9 +51,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  onLogin(data) {
-    console.log(data);
-    this.authenticationService.login(data)
+  onLogin(form) {
+    console.log(form);
+    this.authenticationService.login(form)
       .subscribe(resp => {
         let jwt = resp.headers.get("Authorization"); // we get the jwt token into jwt variable
         this.authenticationService.saveToken(jwt); // we save it in the local storage using the saveToken function

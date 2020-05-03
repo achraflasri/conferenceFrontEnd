@@ -19,6 +19,19 @@ export class HeaderComponent implements OnInit {
     this.username = this.authenticationService.name;
     return this.authenticationService.isAuthenticated();
   }
+  isAdmin() {
+    return this.authenticationService.isAdmin();
+  }
+
+  isChair() {
+    return this.authenticationService.isChair();
+  }
+  isAuthor() {
+    return this.authenticationService.isAuthor();
+  }
+  isReviewer() {
+    return this.authenticationService.isReviewer();
+  }
 
   logOut() {
     this.authenticationService.logOut();
