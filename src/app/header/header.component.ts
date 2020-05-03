@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     return this.authenticationService.isAuthenticated();
   }
   isAdmin() {
-    return this.authenticationService.isAdmin();
+    return this.authenticationService.isAdmin() || this.authenticationService.isAuthenticated();
   }
 
   isChair() {

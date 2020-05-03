@@ -1,10 +1,14 @@
 <div class="shadow">
     <mat-toolbar color="primary">
         <div class="logo_box">
-            <a mat-button href="#" class="logo_content">Conference</a>
+            <a mat-button href="main" class="logo_content">Conference</a>
         </div>
-        <div>
-            <a *ngIf="isAuthenticated()" mat-button href="#">Gestion</a>
+        <div *ngIf="isAdmin()">
+            <button mat-button [matMenuTriggerFor]="menu">Gestion</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="main/admin/adminConferences">Conference</button>
+                <button mat-menu-item routerLink="main/admin/adminUsers">Utilisateurs</button>
+            </mat-menu>
         </div>
 
 

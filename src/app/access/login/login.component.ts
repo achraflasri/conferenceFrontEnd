@@ -98,5 +98,8 @@ export class LoginComponent implements OnInit {
   isReviewer() {
     return this.authenticationService.isReviewer();
   }
+  isAuthenticated() {
+    return this.authenticationService.isAuthenticated();
+  }
 
 }

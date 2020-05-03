@@ -8,6 +8,8 @@ import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { AuthorComponent } from './main/author/author.component';
 import { AdminComponent } from './main/admin/admin.component';
+import { AdminConferenceComponent } from './main/admin/admin-conference/admin-conference.component';
+import { AdminUsersComponent } from './main/admin/admin-users/admin-users.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,15 @@ const routes: Routes = [
     children: [
       {
         path: 'admin',
-        component: AdminComponent
+        component: AdminComponent,
+        children: [
+          {
+            path: 'adminConferences', component: AdminConferenceComponent
+          },
+          {
+            path: 'adminUsers', component: AdminUsersComponent
+          }
+        ]
       },
       {
         path: 'author',

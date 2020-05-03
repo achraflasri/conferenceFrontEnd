@@ -8,18 +8,19 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { AuthorComponent } from './author/author.component';
 import { AdminComponent } from './admin/admin.component';
 import { MaterialModule } from '../material/material.module';
+import { AdminConferenceComponent } from './admin/admin-conference/admin-conference.component';
+import { AdminModule } from './admin/admin.module';
 
 
 
 @NgModule({
   declarations: [
     MainComponent,
-    AuthorComponent,
-    AdminComponent
+    AuthorComponent
   ],
   exports: [
     MainComponent,
-    MaterialModule
+    MaterialModule,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +28,8 @@ import { MaterialModule } from '../material/material.module';
     RouterModule,
     FormsModule,
     FontAwesomeModule,
-    MaterialModule
+    MaterialModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [MainComponent]
