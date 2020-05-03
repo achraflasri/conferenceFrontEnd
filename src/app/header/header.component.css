@@ -1,0 +1,30 @@
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+  a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: white;
+  }
+  .shadow{
+    -webkit-box-shadow: 0px 1px 27px 0px rgba(0,0,0,0.68);
+    -moz-box-shadow: 0px 1px 27px 0px rgba(0,0,0,0.68);
+    box-shadow: 0px 1px 27px 0px rgba(0,0,0,0.68);
+    position: sticky;
+    top: 0;
+  }
+  .logo_box{
+    margin-right: 10px;
+    
+  }
+  .logo_content{
+    font-size: 30px;
+  }

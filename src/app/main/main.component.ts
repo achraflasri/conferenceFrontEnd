@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthenticationService} from "../authentication.service";
+import { AuthenticationService } from "../authentication.service";
 
 @Component({
   selector: 'app-main',
@@ -8,29 +8,36 @@ import {AuthenticationService} from "../authentication.service";
 })
 export class MainComponent implements OnInit {
 
-  username:string;
-  expiration:Date;
+  username: string;
+  expiration: Date;
 
-  constructor(private authentificationService:AuthenticationService) {
-    this.expiration = authentificationService.expiration;
+  constructor(private authenticationService: AuthenticationService) {
+    this.expiration = authenticationService.expiration;
   }
 
-  isAdmin(){
-    return this.authentificationService.isAdmin();
+  isAdmin() {
+    return this.authenticationService.isAdmin();
   }
-  isUser(){
-    return this.authentificationService.isUser();
+
+  isChair() {
+    return this.authenticationService.isChair();
   }
-  isAutheticated(){
-    this.username = this.authentificationService.name;
-    return this.authentificationService.isAuthenticated();
+  isAuthor() {
+    return this.authenticationService.isAuthor();
+  }
+  isReviewer() {
+    return this.authenticationService.isReviewer();
+  }
+  isAutheticated() {
+    this.username = this.authenticationService.name;
+    return this.authenticationService.isAuthenticated();
   }
 
   ngOnInit(): void {
-    this.authentificationService.loadToken();
+    this.authenticationService.loadToken();
   }
 
   logOut() {
-    this.authentificationService.logOut();
+    this.authenticationService.logOut();
   }
 }

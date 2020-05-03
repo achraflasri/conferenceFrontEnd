@@ -38,16 +38,22 @@ export class AuthenticationService {
   isAdmin() {
     return this.roles.indexOf('ADMIN') >= 0;
   }
-  isUser() {
-    return this.roles.indexOf('USER') >= 0;
+  isChair() {
+    return this.roles.indexOf('CHAIR') >= 0;
+  }
+  isAuthor() {
+    return this.roles.indexOf('AUTHOR') >= 0;
+  }
+  isReviewer() {
+    return this.roles.indexOf('REVIEWER') >= 0;
   }
   isAuthenticated() {
-    return this.roles && (this.isAdmin() || this.isUser());
+    return this.roles && (this.isAdmin() || this.isChair() || this.isReviewer() || this.isAuthor());
   }
   loadToken() {
     this.jwt = localStorage.getItem('token');
     this.parseJWT();
-  }
+  } 
   logOut() {
     localStorage.removeItem('token');
     this.initParams();

@@ -1,26 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {BrowserModule} from "@angular/platform-browser";
-import {RouterModule} from "@angular/router";
-import {FormsModule} from "@angular/forms";
-import {MainComponent} from "./main.component";
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { BrowserModule } from "@angular/platform-browser";
+import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
+import { MainComponent } from "./main.component";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { AuthorComponent } from './author/author.component';
+import { AdminComponent } from './admin/admin.component';
+import { MaterialModule } from '../material/material.module';
 
 
 
 @NgModule({
   declarations: [
-    MainComponent
+    MainComponent,
+    AuthorComponent,
+    AdminComponent
   ],
   exports: [
-    MainComponent
+    MainComponent,
+    MaterialModule
   ],
   imports: [
     BrowserModule,
     CommonModule,
     RouterModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [MainComponent]
