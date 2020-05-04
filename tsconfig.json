@@ -14,7 +14,25 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "material": [
+        "dist/material/material",
+        "dist/material"
+      ],
+      "core-data": [
+        "dist/core-data/core-data",
+        "dist/core-data"
+      ],
+      "ui-login": [
+        "dist/ui-login/ui-login",
+        "dist/ui-login"
+      ],
+      "ui-toolbar": [
+        "dist/ui-toolbar/ui-toolbar",
+        "dist/ui-toolbar"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

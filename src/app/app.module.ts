@@ -3,15 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from "@angular/common/http";
-import { RouterModule } from "@angular/router";
-import { FormsModule } from "@angular/forms";
-import { AccessModule } from "./access/access.module";
-import { MainModule } from "./main/main.module";
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AccessModule } from './access/access.module';
+import { MainModule } from './main/main.module';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from 'projects/material/src/public-api';
+import { ChairModule } from './chair/chair.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { far } from '@fortawesome/free-regular-svg-icons';
     HttpClientModule,
     AccessModule,
     MainModule,
-    FontAwesomeModule
+    MaterialModule,
+    FontAwesomeModule,
+    ChairModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
