@@ -10,6 +10,8 @@ import { AuthorComponent } from './main/author/author.component';
 import { AdminComponent } from './main/admin/admin.component';
 import { AdminConferenceComponent } from './main/admin/admin-conference/admin-conference.component';
 import { AdminUsersComponent } from './main/admin/admin-users/admin-users.component';
+import { ProfileComponent } from './main/profile/profile.component';
+
 
 
 const routes: Routes = [
@@ -32,6 +34,10 @@ const routes: Routes = [
       {
         path: 'author',
         component: AuthorComponent
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent
       }
     ]
   },

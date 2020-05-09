@@ -1,0 +1,54 @@
+<div class="container">
+    <h3 mat-dialog-title>User id: {{data.id}}</h3>
+
+    <form class="mat-dialog-content" (ngSubmit)="submit()" #formControl="ngForm">
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput #input class="form-control" placeholder="Id" [(ngModel)]="data.id" name="id" disabled>
+                <!-- <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error> -->
+            </mat-form-field>
+        </div>
+
+        <!--Textarea for demo purposes-->
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput #input class="form-control" placeholder="Username" [(ngModel)]="data.username"
+                    name="username" required></textarea>
+                <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <!--Contains mat-hint for characters count and has maxLengt set-->
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput #input class="form-control" placeholder="Phone" [(ngModel)]="data.phone" name="phone"
+                    required></textarea>
+                <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput #input class="form-control" placeholder="Email" [(ngModel)]="data.email" name="email"
+                    required></textarea>
+                <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput #input class="form-control" placeholder="Role" [(ngModel)]="data.role" name="role"
+                    required></textarea>
+                <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1"
+                (click)="stopEdit()">Save</button>
+            <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+        </div>
+    </form>
+</div>

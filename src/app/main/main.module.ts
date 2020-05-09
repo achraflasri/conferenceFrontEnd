@@ -10,13 +10,15 @@ import { AdminComponent } from './admin/admin.component';
 import { MaterialModule } from '../material/material.module';
 import { AdminConferenceComponent } from './admin/admin-conference/admin-conference.component';
 import { AdminModule } from './admin/admin.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
 @NgModule({
   declarations: [
     MainComponent,
-    AuthorComponent
+    AuthorComponent,
+    ProfileComponent
   ],
   exports: [
     MainComponent,
