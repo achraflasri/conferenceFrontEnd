@@ -1,0 +1,54 @@
+<div class="container">
+    <h1 class="display-2"> Conferences </h1>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error possimus quas illum deserunt. Odio veritatis aut,
+    sint
+    quae tempora minus porro dignissimos magnam similique, adipisci eligendi aspernatur mollitia delectus deserunt.
+
+    <h2>Conferences List</h2>
+    <mat-divider></mat-divider>
+    <!-- <mat-nav-list>
+        <mat-list-item *ngFor="let conf of sortConferenceLinks" style="height: 105px">
+            <div>
+                <a matLine [href]="conf.link" target="_blank">
+                    <span class="link-caption" class="item mat-h2">{{ conf.title }}</span>
+                    <span class="item">{{ conf.date | date }}</span>
+                </a>
+            </div>
+
+        </mat-list-item>
+    </mat-nav-list>
+    <mat-divider></mat-divider> -->
+    <p></p>
+    <mat-accordion>
+        <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+        <mat-expansion-panel *ngFor="let conf of sortConferenceLinks" (opened)="panelOpenState = true"
+            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{conf.title}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{conf.datedebut | date }} - {{conf.datefin | date }}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <!-- <mat-form-field>
+                <mat-label>First name</mat-label>
+                <input matInput>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Age</mat-label>
+                <input matInput type="number" min="1">
+            </mat-form-field> -->
+            <p>{{conf.description}}</p>
+
+            <mat-action-row>
+                <button mat-button color="primary">Submit Papers</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+
+</div>
+
+<app-loading-spinner></app-loading-spinner>

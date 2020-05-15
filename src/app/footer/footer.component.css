@@ -1,0 +1,33 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+.footer-box {
+    border-top-style: solid;
+    border-color: rgb(28, 109, 175);
+    border-width: 1px;
+}
+.footer-content {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+.footer-logo {
+    left: 7%;
+}
+.footer-text {
+    display: block;
+    margin: auto;
+}
+
+.footer-copyright {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+.copyright-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

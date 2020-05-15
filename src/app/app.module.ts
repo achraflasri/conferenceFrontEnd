@@ -16,14 +16,17 @@ import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './header/header.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { FooterComponent } from './footer/footer.component';
+import { LoadingSpinnerooComponent } from './loading-spinneroo/loading-spinneroo.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    LoadingSpinnerooComponent
   ],
   imports: [
     BrowserModule,

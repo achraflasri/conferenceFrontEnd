@@ -15,6 +15,7 @@ export class ConferenceService {
 
 
   dataChange: BehaviorSubject<Conferences[]> = new BehaviorSubject<Conferences[]>([]);
+  conferencesData: Conferences[];
   // Temporarily stores data from dialogs 
   dialogData: any;
 

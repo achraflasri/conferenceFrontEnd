@@ -28,9 +28,9 @@ export class AuthenticationService {
     // On recupere les roles et le username apartir du jwt
     const jwtHelperService = new JwtHelperService();
     const jwtObject = jwtHelperService.decodeToken(this.jwt); // on transfere les info dans un object
-    this.username = jwtObject.sub;
-    this.name = jwtObject.sub;
-    this.roles = jwtObject.roles;
+    this.username = jwtObject?.sub;
+    this.name = jwtObject?.sub;
+    this.roles = jwtObject?.roles;
     this.expiration = jwtHelperService.getTokenExpirationDate(this.jwt);
     console.log(jwtObject);
   }

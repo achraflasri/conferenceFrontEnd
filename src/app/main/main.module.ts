@@ -11,6 +11,9 @@ import { MaterialModule } from '../material/material.module';
 import { AdminConferenceComponent } from './admin/admin-conference/admin-conference.component';
 import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './profile/profile.component';
+import { LandingComponent } from './landing/landing.component';
+import { ConferencesComponent } from './conferences/conferences.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 
 
@@ -18,11 +21,14 @@ import { ProfileComponent } from './profile/profile.component';
   declarations: [
     MainComponent,
     AuthorComponent,
-    ProfileComponent
+    ProfileComponent,
+    LandingComponent,
+    ConferencesComponent,
+    LoadingSpinnerComponent
   ],
   exports: [
     MainComponent,
-    MaterialModule,
+    MaterialModule
   ],
   imports: [
     BrowserModule,

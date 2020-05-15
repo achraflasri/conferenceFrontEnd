@@ -118,13 +118,13 @@
       }
     ]
   },
-  // "variable-name": {
-  //   "options": [
-  //     "ban-keywords",
-  //     "check-format",
-  //     "allow-pascal-case"
-  //   ]
-  // },
+  "variable-name": {
+    "options": [
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ]
+  },
   "whitespace": {
     "options": [
       "check-branch",
@@ -146,10 +146,9 @@
   "template-banana-in-box": true,
   "template-no-negated-async": true,
   "use-lifecycle-interface": true,
-  "use-pipe-transform-interface": true
-},
-"rulesDirectory": [
-  "codelyzer",
-  "tslint-plugin-prettier"
-]
+  "use-pipe-transform-interface": true,
+  "rulesDirectory": [
+    "codelyzer",
+    "tslint-plugin-prettier"
+  ]
 }

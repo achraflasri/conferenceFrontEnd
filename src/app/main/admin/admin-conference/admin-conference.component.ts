@@ -179,7 +179,7 @@ export class ExampleDataSource extends DataSource<Conferences> {
     return merge(...displayDataChanges).pipe(map(() => {
       // Filter data
       this.filteredData = this._exampleDatabase.data.slice().filter((conf: Conferences) => {
-        const searchStr = (conf.id + conf.title + conf.datedebut.toISOString).toLowerCase();
+        const searchStr = (conf.id + conf.title + conf.dateDebut.toISOString).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
 
@@ -210,7 +210,7 @@ export class ExampleDataSource extends DataSource<Conferences> {
       switch (this._sort.active) {
         case 'id': [propertyA, propertyB] = [a.id, b.id]; break;
         case 'title': [propertyA, propertyB] = [a.title, b.title]; break;
-        case 'datedebut': [propertyA, propertyB] = [a.datedebut, b.datedebut]; break;
+        case 'datedebut': [propertyA, propertyB] = [a.dateDebut, b.dateDebut]; break;
       }
 
       const valueA = isNaN(+propertyA) ? propertyA : +propertyA;

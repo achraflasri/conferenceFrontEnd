@@ -1,23 +1,71 @@
+.header-box {
+  background-color: white;
+  height: 70px;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  z-index: 1;
+  overflow: hidden;
+  border-bottom-style: solid;
+  border-color: rgb(28, 109, 175);
+  border-width: 1px;
+  
+}
+
+.header__logo-box {
+  left: 4%;
+  position: absolute;
+ }
+
+.header__logo {
+  height: auto;
+ }
+ .header__nav-links-box {
+   position: absolute;
+   left: 40%;
+   top: 50%;
+   transform: translateY(-50%);
+ }
+ .header__nav-links {
+   margin-left: 50px;
+ }
+ .header__nav-links:hover {
+   border-bottom-style: solid;
+   border-color: rgb(28, 109, 175);
+   border-width: 1px;
+ }
+ .nav-utilities-content {
+   text-align: center;
+ }
+ .nav-utilities-icon {
+   color: rgb(28, 109, 175);
+ }
+ .nav-utilities-icon:hover {
+  color: rgb(27, 139, 231);
+}
+
 .example-fill-remaining-space {
     /* This fills the remaining space, by using flexbox. 
        Every toolbar row uses a flexbox row layout. */
     flex: 1 1 auto;
   }
-  a:link {
-    text-decoration: none;
-  }
-  
+  a:link,
   a:visited {
     text-decoration: none;
+    color: rgb(28, 109, 175);
   }
 
-  a:hover {
+
+  /* a:hover {
     color: white;
-  }
+  } */
   .shadow{
     -webkit-box-shadow: 0px 1px 27px 0px rgba(0,0,0,0.68);
     -moz-box-shadow: 0px 1px 27px 0px rgba(0,0,0,0.68);
     box-shadow: 0px 1px 27px 0px rgba(0,0,0,0.68);
+    margin-bottom: 70px;
+    
+    
   }
   .logo_box{
     margin-right: 10px;

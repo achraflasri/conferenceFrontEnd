@@ -11,6 +11,9 @@ import { AdminComponent } from './main/admin/admin.component';
 import { AdminConferenceComponent } from './main/admin/admin-conference/admin-conference.component';
 import { AdminUsersComponent } from './main/admin/admin-users/admin-users.component';
 import { ProfileComponent } from './main/profile/profile.component';
+import { LandingComponent } from './main/landing/landing.component';
+import { ConferencesComponent } from './main/conferences/conferences.component';
+import { AppComponent } from './app.component';
 
 
 
@@ -38,6 +41,14 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'conferences',
+        component: ConferencesComponent
+      },
+      {
+        path: 'landing',
+        component: LandingComponent
       }
     ]
   },
@@ -57,7 +68,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'access/login',
+    redirectTo: 'main/landing',
     pathMatch: 'full'
   }
 ];

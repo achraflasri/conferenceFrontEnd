@@ -1,5 +1,7 @@
 export interface Conferences {
     id: number;
     title: string;
-    datedebut: Date;
+    description: string;
+    dateDebut: Date;
+    dateFint: Date;
 }

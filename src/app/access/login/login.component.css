@@ -4,18 +4,18 @@
     box-sizing: border-box;
   }
   html, body {
-    background-image: url(https://www.madaniya.info/wp-content/uploads/2019/06/slide_conference.jpg);
     width: 100%;
     height: 100%;
   }
   .outer {
     position: relative;
-    width: 100%;
+    margin-left: 5%;
+    width: 90%;
     height: 100%;
-    
+    background-image: linear-gradient(to right bottom, rgba(121, 135, 203, 0.7), rgba(26, 34, 126, 0.7)), url(src\assets\img\background-img-conference-2.jpg);
+    background-size: cover;
   }
  .container {
-    background-color: white;
     color: #663399;
     padding: 15px 25px ;
     width: 100%;
