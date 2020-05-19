@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-chair',
   templateUrl: './chair.component.html',
@@ -7,7 +8,17 @@ import { Component } from '@angular/core';
 })
 export class ChairComponent {
 
-  title = 'hello';
-  
+  title = 'Conferences panel';
+  links = [
+    {path : '/', icon: 'home', title: 'Home'},
+    {path : '/conferences', icon: 'work', title: 'Conferences'},
+    {path : '/reviewers', icon: 'supervised_user_circle', title: 'Reviewers'},
+    {path : '/propositions', icon: 'assignment_ind', title: 'propositions'}
+  ];
+
+  show(sidenav){
+    sidenav.toggle();
+    console.log('bonjour');
+  }
 
 }

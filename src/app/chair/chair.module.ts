@@ -15,18 +15,20 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [ChairComponent],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     CommonModule,
     RouterModule,
     MaterialModule,
-    BrowserModule,
-    BrowserAnimationsModule,
+    UiLoginModule,
     FormsModule,
     HttpClientModule,
-    UiLoginModule,
     ChairRoutingModule,
   ],
   exports: [
     ChairComponent
-  ]
+  ],
+  providers: [],
+  bootstrap: [ChairComponent]
 })
 export class ChairModule { }

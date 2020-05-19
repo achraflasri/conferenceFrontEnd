@@ -22,16 +22,16 @@ import { ChairModule } from './chair/chair.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FontAwesomeModule,
+    MaterialModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    HttpClientModule,
     AccessModule,
     MainModule,
-    MaterialModule,
-    FontAwesomeModule,
     ChairModule,
-    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

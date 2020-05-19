@@ -7,6 +7,7 @@ import {RegisterComponent} from './access/register/register.component';
 import {CommonModule} from '@angular/common';
 import {BrowserModule} from '@angular/platform-browser';
 import { ChairComponent } from './chair/chair.component';
+import { MaterialModule } from 'projects/material/src/public-api';
 
 
 const routes: Routes = [

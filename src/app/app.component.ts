@@ -8,5 +8,5 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'conferenceFrontEnd';
-  faCoffee = faCoffee;
+  //faCoffee = faCoffee;
 }

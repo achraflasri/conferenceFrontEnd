@@ -45,6 +45,10 @@ p {
     border-bottom: 2px solid #673ab7;
 }
 
+.white-icon svg{
+    color: white;
+}
+
 app-root {
     display: flex;
     flex-direction: column;
