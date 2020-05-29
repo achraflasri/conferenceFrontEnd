@@ -1,6 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { JwtHelperService } from "@auth0/angular-jwt";
+
+interface User {
+  id: number;
+  username: string;
+  first_name: string;
+  last_name: string;
+  phone: string;
+  email: string;
+  password: string;
+  role: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +23,11 @@ export class AuthenticationService {
   name: string;
   expiration: Date;
   roles: string[];
+  user: User;
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   login(data) {
     return this.http.post(this.host2 + "/login", data, { observe: 'response' });
@@ -22,7 +36,33 @@ export class AuthenticationService {
     localStorage.setItem("token", jwt)
     this.jwt = jwt;
     this.parseJWT();
+
   }
+  saveUser(user: User) {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+  loadUser(): User {
+    return JSON.parse(localStorage.getItem('user'));
+  }
+
+  getUser(username: string) {
+    if (this.isAuthenticated()) {
+      this.http.get<User>(this.host2 + "/getUser/" + username).subscribe(data => {
+        this.user = data;
+        this.saveUser(this.user);
+        console.log(data);
+      },
+        (error: HttpErrorResponse) => {
+          console.log(error.name + ' ' + error.message);
+        });
+    }
+
+  }
+
+  getUserId(): number {
+    return this.user.id;
+  }
+
 
   parseJWT() {
     // On recupere les roles et le username apartir du jwt
@@ -32,7 +72,7 @@ export class AuthenticationService {
     this.name = jwtObject?.sub;
     this.roles = jwtObject?.roles;
     this.expiration = jwtHelperService.getTokenExpirationDate(this.jwt);
-    console.log(jwtObject);
+    this.getUser(jwtObject?.sub);
   }
 
   isAdmin() {

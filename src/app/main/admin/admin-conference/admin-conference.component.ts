@@ -179,7 +179,7 @@ export class ExampleDataSource extends DataSource<Conferences> {
     return merge(...displayDataChanges).pipe(map(() => {
       // Filter data
       this.filteredData = this._exampleDatabase.data.slice().filter((conf: Conferences) => {
-        const searchStr = (conf.id + conf.title + conf.dateDebut.toISOString).toLowerCase();
+        const searchStr = (conf.id + conf.title).toLowerCase();
         return searchStr.indexOf(this.filter.toLowerCase()) !== -1;
       });
 

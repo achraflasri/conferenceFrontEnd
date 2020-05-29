@@ -12,8 +12,12 @@ import { AdminConferenceComponent } from './main/admin/admin-conference/admin-co
 import { AdminUsersComponent } from './main/admin/admin-users/admin-users.component';
 import { ProfileComponent } from './main/profile/profile.component';
 import { LandingComponent } from './main/landing/landing.component';
-import { ConferencesComponent } from './main/conferences/conferences.component';
-import { AppComponent } from './app.component';
+import { FindAConferenceComponent } from './main/find-a-conference/find-a-conference.component';
+import { ConferenceInfoComponent } from './main/conference-info/conference-info.component';
+import { SubmitAbstractComponent } from './main/submit-abstract/submit-abstract.component';
+import { AdminMainComponent } from './main/admin/admin-main/admin-main.component';
+import { AdminAssignConfComponent } from './main/admin/admin-assign-conf/admin-assign-conf.component';
+
 
 
 
@@ -27,10 +31,16 @@ const routes: Routes = [
         component: AdminComponent,
         children: [
           {
+            path: 'home', component: AdminMainComponent
+          },
+          {
             path: 'adminConferences', component: AdminConferenceComponent
           },
           {
             path: 'adminUsers', component: AdminUsersComponent
+          },
+          {
+            path: 'assign', component: AdminAssignConfComponent
           }
         ]
       },
@@ -43,8 +53,16 @@ const routes: Routes = [
         component: ProfileComponent
       },
       {
-        path: 'conferences',
-        component: ConferencesComponent
+        path: 'conferences/find-a-conference',
+        component: FindAConferenceComponent,
+      },
+      {
+        path: 'conferences/:title',
+        component: ConferenceInfoComponent,
+      },
+      {
+        path: 'conferences/:title/submit-abstract',
+        component: SubmitAbstractComponent,
       },
       {
         path: 'landing',

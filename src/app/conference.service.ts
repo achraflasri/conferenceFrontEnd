@@ -5,6 +5,13 @@ import { BehaviorSubject } from 'rxjs';
 import { Conferences } from './main/admin/admin-conference/Conferences';
 import { ToastrService } from 'ngx-toastr';
 
+interface Conferences1 {
+  id: number;
+  title: string;
+  description: string;
+  datedebut: Date;
+  datefin: Date;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +19,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ConferenceService {
   public host: string = "http://localhost:8080"
   private readonly API_URL = 'https://api.github.com/repos/angular/angular/issues';
+  conference: Conferences1;
 
 
   dataChange: BehaviorSubject<Conferences[]> = new BehaviorSubject<Conferences[]>([]);
@@ -21,7 +29,8 @@ export class ConferenceService {
 
   constructor(public httpClient: HttpClient,
     public authenticationService: AuthenticationService,
-    private toastrService: ToastrService) { }
+    private toastrService: ToastrService) {
+  }
 
   get data(): Conferences[] {
     return this.dataChange.value;
@@ -29,6 +38,14 @@ export class ConferenceService {
 
   getDialogData() {
     return this.dialogData;
+  }
+
+  saveConference(conf: Conferences1) {
+    this.conference = conf;
+    localStorage.setItem('conference', JSON.stringify(conf));
+  }
+  loadConference(): Conferences1 {
+    return JSON.parse(localStorage.getItem('conference'));
   }
 
 
@@ -61,8 +78,6 @@ export class ConferenceService {
         });
         console.log(err);
       };
-
-
   }
 
   updateIssue(issue: Conferences): void {
@@ -103,42 +118,6 @@ export class ConferenceService {
 
 }
 
-/* REAL LIFE CRUD Methods I've used in my projects. ToasterService uses Material Toasts for displaying messages:
 
-    // ADD, POST METHOD
-    addItem(kanbanItem: KanbanItem): void {
-    this.httpClient.post(this.API_URL, kanbanItem).subscribe(data => {
-      this.dialogData = kanbanItem;
-      this.toasterService.showToaster('Successfully added', 3000);
-      },
-      (err: HttpErrorResponse) => {
-      this.toasterService.showToaster('Error occurred. Details: ' + err.name + ' ' + err.message, 8000);
-    });
-   }
-
-    // UPDATE, PUT METHOD
-     updateItem(kanbanItem: KanbanItem): void {
-    this.httpClient.put(this.API_URL + kanbanItem.id, kanbanItem).subscribe(data => {
-        this.dialogData = kanbanItem;
-        this.toasterService.showToaster('Successfully edited', 3000);
-      },
-      (err: HttpErrorResponse) => {
-        this.toasterService.showToaster('Error occurred. Details: ' + err.name + ' ' + err.message, 8000);
-      }
-    );
-  }
-
-  // DELETE METHOD
-  deleteItem(id: number): void {
-    this.httpClient.delete(this.API_URL + id).subscribe(data => {
-      console.log(data['']);
-        this.toasterService.showToaster('Successfully deleted', 3000);
-      },
-      (err: HttpErrorResponse) => {
-        this.toasterService.showToaster('Error occurred. Details: ' + err.name + ' ' + err.message, 8000);
-      }
-    );
-  }
-*/
 
 

@@ -151,3 +151,23 @@
     margin-left: auto;
 }
 
+@media(max-width: 900px) {
+    .hero{
+        margin-top: 140px;
+    }
+    .heading-primary-main{
+
+        font-size: 38px;
+        font-weight: 400;
+        letter-spacing: 6px;
+
+    
+    }
+    .heading-primary-sub{
+        margin-top: 20px;
+        font-size: 9px;
+        font-weight: 400;
+        letter-spacing: 5px;
+
+    }
+}

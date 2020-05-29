@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
-
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,6 +9,8 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class HeaderComponent implements OnInit {
   username: String;
+  faCoffee = faCoffee;
+  faBars = faBars;
   constructor(private authenticationService: AuthenticationService) {
 
   }

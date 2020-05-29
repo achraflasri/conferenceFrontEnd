@@ -20,7 +20,7 @@
     <mat-divider></mat-divider> -->
     <p></p>
     <mat-accordion>
-        <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+
         <mat-expansion-panel *ngFor="let conf of sortConferenceLinks" (opened)="panelOpenState = true"
             (closed)="panelOpenState = false">
             <mat-expansion-panel-header>
@@ -44,11 +44,9 @@
             <p>{{conf.description}}</p>
 
             <mat-action-row>
-                <button mat-button color="primary">Submit Papers</button>
+                <button mat-button (click)="navigateToRoute('main/conference', conf)" color="primary">Submit
+                    Papers</button>
             </mat-action-row>
         </mat-expansion-panel>
     </mat-accordion>
-
 </div>
-
-<app-loading-spinner></app-loading-spinner>

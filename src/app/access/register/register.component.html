@@ -1,1 +1,51 @@
-<p>register works!</p>
+<div class="outer ">
+    <div class="container">
+        <mat-card class="box_container">
+
+            <mat-card-header class="d-flex justify-content-center">
+                <mat-card-title style="font-size: 45px; padding-top: 20px;">Register</mat-card-title>
+            </mat-card-header>
+            <div class="form_content">
+                <form (ngSubmit)="onRegister(form.value)" class="example-form" [formGroup]="form">
+
+                    <mat-card-content>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Username</mat-label>
+                            <input type='text' matInput formControlName="username" ngModel>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Email</mat-label>
+                            <input type='email' matInput formControlName="email" [errorStateMatcher]="emailErrorMatcher"
+                                ngModel>
+                            <mat-error *ngIf="getErrorMessage('email')=='Please enter a valid email'">Error:
+                                {{ getErrorMessage('email') }}
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Password</mat-label>
+                            <input type='password' matInput formControlName="password"
+                                [errorStateMatcher]="passwordErrorMatcher" ngModel>
+                            <mat-error>Error:
+                                {{ getErrorMessage('password') }}</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Confirm Password</mat-label>
+                            <input type='password' matInput formControlName="confirmedPassword"
+                                [errorStateMatcher]="confirmErrorMatcher" ngModel>
+                            <mat-error *ngIf="getErrorMessage('password')=='Password must match'">Error:
+                                {{ getErrorMessage('password') }}</mat-error>
+                        </mat-form-field>
+                    </mat-card-content>
+
+                    <button mat-stroked-button color="primary" class="btn-block" type="submit">Register</button>
+                </form>
+                <div class="d-flex justify-content-center" style="margin-top: 50px;">Already have an account? <a
+                        style="margin-left: 5px; " href="/access/login">Log in</a></div>
+            </div>
+
+        </mat-card>
+    </div>
+</div>

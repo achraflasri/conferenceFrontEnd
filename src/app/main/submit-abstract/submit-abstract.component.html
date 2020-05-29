@@ -1,0 +1,97 @@
+<div fxLayout="column" fxLayoutAlign="space-around center">
+    <div style="width: 800px; border-style: solid; border-color: rgb(28, 109, 175);">
+        <div class="conf-title mat-display-2"
+            style="text-align: center; padding: 30px; background-color: rgb(28, 109, 175); color: white;">
+            {{conference.title}} Session Submission Form
+        </div>
+        <div style="margin: 15px 25px; font-size: 16px; line-height: 1.6;">
+            <p>Thank you for your interest in submitting a session proposal for the {{conference.title}} Conference on
+                {{conference.datedebut | date }} ! Conference sessions should be one hour and fifteen minutes long and
+                should include two to four speakers. You should leave at least 10-15 minutes at the end of your session
+                for questions and answers.</p>
+        </div>
+        <div style="margin: 25px 25px ; font-size: 16px; line-height: 1.6;">
+            <p>Please make sure to include all of the requested information prior to submitting; incomplete forms may
+                not be considered. The submittal deadline is 5:00 pm on date.</p>
+        </div>
+        <form (ngSubmit)="onSubmitProposition(form.value)" [formGroup]="form">
+            <div *ngIf="!isAuthor()" class="session mat-tab-header mat-h1"
+                style="padding: 10px; padding-left: 30px;  background-color: rgb(137, 201, 253);">
+                Presenter Information
+            </div>
+            <div class="author-form" *ngIf="!isAuthor()" style="padding: 0 15px;">
+
+                <h3>Name of Presenter</h3>
+                <mat-form-field appearance="outline" style="margin-right: 30px;">
+                    <mat-label>Nom</mat-label>
+                    <input type="text" formControlName="nom" matInput>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Prenom</mat-label>
+                    <input type="text" formControlName="prenom" matInput>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <p></p>
+                <p></p>
+                <h3>Email address for person who should receive notifications about this submission.</h3>
+                <mat-form-field appearance="outline">
+                    <mat-label>Enter your email</mat-label>
+                    <input type="email" formControlName="email" matInput>
+                    <mat-icon matSuffix>mail_outline</mat-icon>
+                    <!-- <input matInput placeholder="pat@example.com" [formControl]="email" required> -->
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                </mat-form-field>
+                <p></p>
+                <p></p>
+                <h3>Presenter's phone number.</h3>
+                <mat-form-field appearance="outline">
+                    <mat-label>Phone Number</mat-label>
+                    <input type="text" formControlName="tel" matInput>
+                    <mat-icon matSuffix>phone</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="session mat-tab-header mat-h1"
+                style="padding: 10px; padding-left: 30px;  background-color: rgb(137, 201, 253);">
+                Session Information
+            </div>
+            <div class="session-form" style="padding: 0 15px;">
+                <mat-form-field class="example-full-width">
+                    <mat-label>1. What is the working title for your session?</mat-label>
+                    <input type="text" formControlName="sessionTitle" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>2. Please share any additional information about your proposal.</mat-label>
+                    <textarea matInput></textarea>
+                </mat-form-field>
+
+                <h3>Upload Paper File.</h3>
+                <button style="margin-bottom: 15px; margin-left: 50px;" mat-fab color="primary">
+                    <mat-icon>cloud_upload</mat-icon>
+                </button>
+                <p></p>
+                <p></p>
+            </div>
+            <div class="session mat-tab-header mat-h1"
+                style="padding: 10px; padding-left: 30px; background-color: rgb(137, 201, 253);">
+                Submit Proposal
+            </div>
+            <div style="margin: 25px 25px ; font-size: 16px; line-height: 1.6;">
+                <p>Please review your information for accuracy before submitting. This form cannot be modified after it
+                    has
+                    been submitted.</p>
+            </div>
+
+            <div style="margin: 25px 25px ; font-size: 16px; line-height: 1.6;">
+                <p>Proposals will be reviewed by the CROWDMEETING Curriculum Committee and applicants will be
+                    notified if their session has been selected. All applicants will be notified of the status of their
+                    submission.</p>
+            </div>
+
+            <button style="margin-bottom: 45px; margin-left: 50px;" mat-raised-button color="primary"
+                type="submit">Submit</button>
+        </form>
+
+    </div>
+</div>

@@ -14,6 +14,8 @@ import { DeleteComponent } from './admin-conference/dialogs/delete/delete.compon
 import { DeleteUserComponent } from './admin-users/dialogs/delete-user/delete-user.component';
 import { CreateUserComponent } from './admin-users/dialogs/create-user/create-user.component';
 import { UpdateUserComponent } from './admin-users/dialogs/update-user/update-user.component';
+import { AdminMainComponent } from './admin-main/admin-main.component';
+import { AdminAssignConfComponent } from './admin-assign-conf/admin-assign-conf.component';
 
 
 
@@ -28,7 +30,9 @@ import { UpdateUserComponent } from './admin-users/dialogs/update-user/update-us
     DeleteComponent,
     DeleteUserComponent,
     CreateUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    AdminMainComponent,
+    AdminAssignConfComponent
   ],
   imports: [
     CommonModule,

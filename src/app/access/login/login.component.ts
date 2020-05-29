@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit {
         // this.router.navigateByUrl("/main");
         switch (this.role) {
           case this.isAdmin(): {
-            this.router.navigateByUrl("/main/admin");
+            this.router.navigateByUrl("/main/admin/home");
             break;
           }
           case this.isReviewer(): {

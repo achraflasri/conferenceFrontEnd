@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   selector: 'app-update',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.css']
-})
+}) 
 export class UpdateComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<UpdateComponent>,

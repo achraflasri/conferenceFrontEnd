@@ -5,15 +5,28 @@ import { BehaviorSubject } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { User } from './main/admin/admin-users/User';
 
+interface UserForm {
+  first_name: string;
+  last_name: string;
+  phone: string;
+  username: string;
+  email: string;
+  password: string;
+  confirmedPassword: string;
+  role: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   public host: string = "http://localhost:8080/cusers";
+  public host2: string = "http://localhost:8080";
 
   dataChange: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
   // Temporarily stores data from dialogs 
   dialogData: any;
+  userForm: UserForm;
 
   constructor(public httpClient: HttpClient,
     public authenticationService: AuthenticationService,
@@ -25,6 +38,20 @@ export class UserService {
 
   getDialogData() {
     return this.dialogData;
+  }
+
+
+  createAuthorAccount(author: UserForm): void {
+    let headers = new HttpHeaders();
+    headers.append('authorization', 'Bearer ' + this.authenticationService.jwt);
+    headers.append('Content-Type', 'application/json');
+    this.httpClient.post(this.host2 + "/createAuthor", author, { headers: headers, responseType: 'text' }).subscribe(data => {
+      this.userForm = author;
+      console.log(data);
+    }),
+      (err: HttpErrorResponse) => {
+        console.log(err);
+      };
   }
 
   /** CRUD METHODS */

@@ -1,0 +1,34 @@
+<div class="container p-5">
+    <div>
+        <h1 class="mat-display-3" style="background-color: aqua; margin-bottom: 1rem ;">{{conference.title}}</h1>
+        <div class="mat-h2" style="background-color: aqua;">
+            {{conference.datedebut | date:'dd' }}-{{conference.datefin | date:'dd' }}
+            {{conference.datefin | date:'MMM yyyy' }}</div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row">
+        <div class="col-8">
+            <p></p>
+            <h1>
+                <mat-panel-description>Description</mat-panel-description>
+            </h1>
+            <p>{{conference.description}}</p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis voluptate, rerum laudantium magni inventore
+            voluptatum unde ducimus, dolor aspernatur officia recusandae eaque assumenda dicta, ipsa iste qui ab quae
+            commodi.
+            <p></p>
+            <mat-divider></mat-divider>
+            <h1>Chairs and Co-Chairs</h1>
+            <p></p>
+            <h2>Image and name of the chairs</h2>
+            <p></p>
+            <mat-divider></mat-divider>
+            <p></p>
+            <button mat-button (click)="onSubmit('main/conferences/' + conference.title + '/submit-abstract')"
+                color="primary">Submit papers</button>
+        </div>
+    </div>
+
+
+
+</div>

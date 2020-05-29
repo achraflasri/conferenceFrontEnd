@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { ConferenceService } from 'src/app/conference.service';
 import { Conferences } from '../admin/admin-conference/Conferences';
+import { Router } from '@angular/router';
 
 interface IConference {
   title: string,
@@ -32,7 +33,8 @@ export class ConferencesComponent implements OnInit {
 
 
   constructor(private httpClient: HttpClient,
-    private conferenceService: ConferenceService) {
+    private conferenceService: ConferenceService,
+    private router: Router) {
     setTimeout(() => {
       this.httpClient.get<Conferences1[]>("http://localhost:8080/conferences").subscribe(data => {
         this.conferenceLinks = data['_embedded']['conferences'];
@@ -69,6 +71,10 @@ export class ConferencesComponent implements OnInit {
 
   // }
 
+  navigateToRoute(path: string, conf: Conferences1) {
+    this.router.navigateByUrl(path);
+    this.conferenceService.saveConference(conf);
+  }
 
   get sortConferenceLinks() {
     return this.conferenceLinks;
