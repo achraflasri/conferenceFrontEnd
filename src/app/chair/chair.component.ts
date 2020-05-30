@@ -16,9 +16,5 @@ export class ChairComponent {
     {path : '/propositions', icon: 'assignment_ind', title: 'propositions'}
   ];
 
-  show(sidenav){
-    sidenav.toggle();
-    console.log('bonjour');
-  }
 
 }

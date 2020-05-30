@@ -10,6 +10,10 @@ import { MaterialModule } from 'projects/material/src/public-api';
 import { UiLoginModule } from 'projects/ui-login/src/lib/ui-login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConferencesModule } from './conferences/conferences.module';
+import { PropositionsModule } from './propositions/propositions.module';
+import { ReviewersModule } from './reviewers/reviewers.module';
 
 
 @NgModule({
@@ -17,13 +21,17 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    CommonModule,
-    RouterModule,
-    MaterialModule,
-    UiLoginModule,
-    FormsModule,
     HttpClientModule,
+    FontAwesomeModule,
+    MaterialModule,
     ChairRoutingModule,
+    RouterModule,
+    FormsModule,
+    CommonModule,
+    ConferencesModule,
+    PropositionsModule,
+    ReviewersModule,
+    UiLoginModule,
   ],
   exports: [
     ChairComponent

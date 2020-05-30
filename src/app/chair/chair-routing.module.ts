@@ -4,7 +4,10 @@ import { ChairModule } from './chair.module';
 import { ChairComponent } from './chair.component';
 
 const routes: Routes = [
-  {path : '', component: ChairComponent}
+  { path: '', loadChildren: './conferences/conferences.module#ConferencesModule'},
+  { path: 'conferences', loadChildren: './conferences/conferences.module#ConferencesModule'},
+  { path: 'reviewers', loadChildren: './reviewers/reviewers.module#ReviewersModule'},
+  { path: 'propositions', loadChildren: './propositions/propositions.module#PropositionsModule'},
 ];
 
 @NgModule({
