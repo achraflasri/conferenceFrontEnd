@@ -1,0 +1,83 @@
+<div class="container p-5" style="font-family: 'Asap Condensed'">
+    <div style="padding-top: 30px; text-align: center;">
+        <h1 class="mat-display-3" style=" margin-bottom: 1rem ; font-family: 'Asap Condensed';">{{conference.title}}
+        </h1>
+        <div class="mat-h2" style="font-family: 'Asap Condensed';">
+            {{conference.datedebut | date:'dd' }}-{{conference.datefin | date:'dd' }}
+            {{conference.datefin | date:'MMM yyyy' }}</div>
+    </div>
+    <p></p>
+    <mat-divider></mat-divider>
+    <p></p>
+    <div class="row">
+        <div class="col-12">
+            <div fxLayout="column" fxLayoutAlign="space-around center">
+                <div style="width: 70%;">
+                    <div style="text-align: center;">
+                        <h1>
+                            <mat-panel-description>About</mat-panel-description>
+                        </h1>
+                    </div>
+                    <p class="description">{{conference.description}}</p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <mat-divider></mat-divider>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <div style="text-align: center;">
+                        <h1>
+                            <mat-panel-description>Overview</mat-panel-description>
+                        </h1>
+                    </div>
+                    <div class="info">
+                        <div class="info-line">
+                            <span class="info-name">Event Type :</span>
+                            <span class="info-content"> Conference</span>
+                        </div>
+                        <p></p>
+                        <div class="info-line">
+                            <span class="info-name">Title :</span>
+                            <span class="info-content">{{ conference.title}}</span>
+                        </div>
+                        <p></p>
+                        <div class="info-line">
+                            <span class="info-name">Start Date: </span>
+                            <span class="info-content"> {{conference.datedebut | date: 'fullDate' }}</span>
+                        </div>
+                        <p></p>
+                        <div class="info-line">
+                            <span class="info-name">End Date :</span>
+                            <span class="info-content"> {{conference.datefin | date: 'fullDate' }}</span>
+                        </div>
+
+                    </div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <mat-divider></mat-divider>
+                    <!-- <h1>Chairs and Co-Chairs</h1>
+            <p></p>
+            <h2>Image and name of the chairs</h2>
+            <p></p>
+            <mat-divider></mat-divider> -->
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <div style="text-align: center;">
+                        <button mat-button
+                            (click)="onSubmit('main/conferences/' + conference.title + '/submit-abstract')"
+                            color="primary" style="font-family: 'Asap Condensed';font-size: 20px;">Submit for session
+                            proposal</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+    <h3 mat-dialog-title>Session: {{data.proposition.titre}}</h3>
+
+    <form class="mat-dialog-content" (ngSubmit)="submit()" #formControl="ngForm">
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput class="form-control" placeholder="Title" [(ngModel)]="data.proposition.titre"
+                    name="titre" required></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <mat-label>Paper</mat-label>
+                <input matInput [(ngModel)]="data.proposition.path" name="path">
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1"
+                (click)="stopEdit()">Save</button>
+            <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+        </div>
+    </form>
+</div>

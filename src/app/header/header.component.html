@@ -1,0 +1,51 @@
+<div>
+    <mat-toolbar class="header-box">
+
+        <div class="header__logo-box">
+            <a href="main/landing" class="logo_content">
+                <img src="assets/img/conference-logo-inline.png" alt="Logo" class="header__logo banner">
+            </a>
+        </div>
+
+        <div class="header__nav-links-box">
+            <ul>
+                <li><a href="main/landing" class="header__nav-links">Home</a></li>
+                <li><a href="main/conferences/find-a-conference" class="header__nav-links">Conferences</a></li>
+                <li><a href="#" class="header__nav-links">Services</a></li>
+                <li><a href="#" class="header__nav-links">About Us</a></li>
+                <li><a href="#" class="header__nav-links">Contact Us</a></li>
+            </ul>
+        </div>
+
+
+
+        <!-- This fills the remaining space of the current row  pppppppppppppppppppppppppp-->
+        <span class="example-fill-remaining-space"></span>
+
+        <!-- <div *ngIf="isAdmin()">
+            <button mat-button [matMenuTriggerFor]="menu"
+                style="font-size: 20px; color: rgb(28, 109, 175);">Gestion</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="main/admin/adminConferences">Conference</button>
+                <button mat-menu-item routerLink="main/admin/adminUsers">Utilisateurs</button>
+            </mat-menu>
+        </div> -->
+        <div class="header__nav-utilities-box">
+            <button mat-flat-button [matMenuTriggerFor]="menu"><span
+                    class="material-icons nav-utilities-icon">account_circle</span></button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item routerLink="/access/login" class="nav-utilities-content"
+                    *ngIf="!isAuthenticated()">Login</button>
+                <button mat-menu-item routerLink="/access/register" class="nav-utilities-content"
+                    *ngIf="!isAuthenticated()">Register</button>
+                <button *ngIf="isAuthenticated()" mat-menu-item routerLink="/main/profile"
+                    class="nav-utilities-content">{{username}}</button>
+                <button *ngIf="isAuthenticated()" mat-menu-item routerLink="main/landing" class="nav-utilities-content"
+                    (click)="logOut()">Logout</button>
+            </mat-menu>
+        </div>
+    </mat-toolbar>
+
+
+
+</div>

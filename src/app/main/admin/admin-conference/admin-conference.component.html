@@ -1,0 +1,123 @@
+<mat-toolbar color="primary">
+    <span style="padding-left: 20px;">Conferences</span>
+    <span class="spacer"></span>
+    Reload data:
+    <button mat-icon-button (click)="refresh()">
+        <mat-icon>refresh</mat-icon>
+    </button>
+</mat-toolbar>
+
+<div class="container mat-elevation-z8">
+    <div class="form">
+        <mat-form-field floatPlaceholder="never" color="accent">
+            <input matInput #filter placeholder="Filter conferences">
+        </mat-form-field>
+    </div>
+
+    <mat-table #table [dataSource]="dataSource" matSort class="mat-cell">
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+            <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="title">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.title}}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="datedebut">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>datedebut</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.datedebut}}</mat-cell>
+        </ng-container>
+
+
+        <!-- actions -->
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef>
+                <button mat-icon-button color="primary" (click)="addNew(null)">
+                    <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+                </button>
+            </mat-header-cell>
+
+            <mat-cell *matCellDef="let row; let i=index;">
+                <button mat-icon-button color="accent" (click)="startEdit(i, row.id, row.title, row.datedebut)">
+                    <mat-icon aria-label="Edit">edit</mat-icon>
+                </button>
+
+                <button mat-icon-button color="accent" (click)="deleteItem(i, row.id, row.title, row.datedebut)">
+                    <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+
+    </mat-table>
+
+    <div class="no-results" [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
+        No results
+    </div>
+
+    <mat-paginator #paginator [length]="dataSource.filteredData.length" [pageIndex]="0" [pageSize]="10"
+        [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+
+
+</div>
+
+<div style="text-align: center; margin: 30px;">
+    <a mat-button color="primary" href="/main/admin/home" style="font-family: 'Asap Condensed';font-size: 20px;">Return
+        to main</a>
+</div>
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="row justify-content-md-center">
+
+        <ul *ngIf="conferences">
+            <li *ngFor="let c of conferences._embedded.conferences">
+                {{c.title}}
+            </li>
+        </ul> -->
+
+<!-- <table mat-table #table [dataSource]="dataSource" class="mat-elevation-z8"> -->
+
+<!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+<!-- Position Column -->
+<!-- <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container> -->
+
+<!-- Name Column -->
+<!-- <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container> -->
+
+<!-- Weight Column -->
+<!-- <ng-container matColumnDef="weight">
+                <th mat-header-cell *matHeaderCellDef> Weight </th>
+                <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+            </ng-container> -->
+
+<!-- Symbol Column -->
+<!-- <ng-container matColumnDef="symbol">
+                <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+            </ng-container> -->
+
+<!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table> -->
+<!-- </div>
+</div> -->

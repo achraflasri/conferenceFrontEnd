@@ -1,35 +1,36 @@
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
+<div *ngIf="!isAuthenticated()" class="outer ">
+  <div class="container">
+    <mat-card class="box_container">
 
-<div class="d-flex justify-content-center">
-  <!-- Default form login -->
-  <form class="text-center border border-light p-5" #f="ngForm" (ngSubmit)="onLogin(f.value)">
+      <mat-card-header class="d-flex justify-content-center">
+        <mat-card-title style="font-size: 45px; padding-top: 20px;">Sign in</mat-card-title>
+      </mat-card-header>
+      <div class="form_content">
+        <form (ngSubmit)="onLogin(form.value)" class="example-form" [formGroup]="form">
 
-    <p class="h4 mb-4">Sign in</p>
+          <mat-card-content>
+            <mat-form-field class="example-full-width">
+              <mat-label>Username</mat-label>
+              <input type='text' matInput formControlName="username" [errorStateMatcher]="usernameErrorMatcher" ngModel>
+              <mat-error>Error: {{ getErrorMessage('username') }}
+              </mat-error>
+            </mat-form-field>
 
-    <!-- Usename -->
-    <input type="text" class="form-control mb-4" name="username" ngModel placeholder="Username">
+            <mat-form-field class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input type='password' matInput formControlName="password" [errorStateMatcher]="passwordErrorMatcher"
+                ngModel>
+              <mat-error>Error: {{ getErrorMessage('password') }}</mat-error>
+            </mat-form-field>
+          </mat-card-content>
 
-    <!-- Password -->
-    <input type="password" name="password" ngModel class="form-control mb-4" placeholder="Password">
+          <button mat-stroked-button color="primary" class="btn-block" type="submit" style="margin-top: 20px;">Log
+            in</button>
+        </form>
+        <div class="d-flex justify-content-center" style="margin-top: 50px;">Not a member? <a style="margin-left: 5px; "
+            href="/access/register">Register</a></div>
+      </div>
 
-    <div class="d-flex justify-content-around">
-
-    </div>
-
-    <!-- Sign in button -->
-    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-
-    <!-- Register -->
-    <p>Not a member?
-      <a href="">Register</a>
-    </p>
-
-
-
-  </form>
-  <!-- Default form login -->
+    </mat-card>
+  </div>
 </div>

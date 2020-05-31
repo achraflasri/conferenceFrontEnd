@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12" style="margin-bottom: 20px;">
+            <form (ngSubmit)="onAssignConf(form.value)" [formGroup]="form">
+                <mat-card class="card"
+                    style="border-style: solid; text-align: center; border-color: rgb(28, 109, 175);">
+                    <div style="text-align: center;">
+                        <h1>Assigner une conference </h1>
+                        <mat-card-header>
+                            <mat-card-title></mat-card-title>
+                        </mat-card-header>
+                    </div>
+
+                    <mat-card-content>
+                        <mat-form-field style="width: 400px;">
+                            <mat-label>Select a conference</mat-label>
+                            <div>
+                                <mat-select formControlName="idConf" [(value)]="confSelectedID">
+                                    <mat-option *ngFor="let conf of sortConferenceList" value={{conf.id}}>
+                                        {{conf.title}}
+                                    </mat-option>
+                                </mat-select>
+                            </div>
+
+                        </mat-form-field>
+                        <p></p>
+                        <!-- <p>You selected: {{confSelectedID}}</p> -->
+
+                        <mat-form-field style="width: 400px;">
+                            <mat-label>Select a chair</mat-label>
+                            <mat-select formControlName="idUser" [(value)]="chairSelectedID">
+                                <mat-option *ngFor="let user of sortUserList" value={{user.id}}>
+                                    <div *ngIf="user.role == 'CHAIR' ">
+                                        {{user.first_name}} | {{user.role}}
+                                    </div>
+
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <p></p>
+                        <!-- <p>You selected: {{chairSelectedID}}</p> -->
+                    </mat-card-content>
+                    <mat-card-actions style="text-align: center;">
+                        <button mat-stroked-button color="primary" type="submit">Assigner</button>
+                    </mat-card-actions>
+                </mat-card>
+            </form>
+        </div>
+    </div>
+    <div style="text-align: center; margin: 30px;">
+        <a mat-button color="primary" href="/main/admin/home"
+            style="font-family: 'Asap Condensed';font-size: 20px;">Return
+            to main</a>
+    </div>
+</div>

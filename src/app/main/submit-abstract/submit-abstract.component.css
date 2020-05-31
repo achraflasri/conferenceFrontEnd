@@ -1,0 +1,17 @@
+
+.example-form {
+    min-width: 150px;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .title-info {
+    font-family: 'Asap Condensed';
+    padding-top: 10px;
+    font-size: 25px;
+    font-weight: bold;
+  }

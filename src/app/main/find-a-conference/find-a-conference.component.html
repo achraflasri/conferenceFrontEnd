@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="container">
+
+
+        <div style="font-size: 40px; font-family: 'Asap Condensed'; padding-top: 40px;" class="mat-display-2"> Find a
+            CrowdMeeting conference </div>
+
+        <h2 style="font-family: 'Asap Condensed'; font-size: 28px;">Conferences</h2>
+        <mat-divider></mat-divider>
+        <p></p>
+        <mat-accordion>
+            <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+            <mat-expansion-panel *ngFor="let conf of sortConferenceLinks" (opened)="panelOpenState = true"
+                (closed)="panelOpenState = false"
+                style="border-left-style: groove; border-left-color: rgba(50, 185, 248, 0.883); margin-bottom: 20px; ">
+                <mat-expansion-panel-header style="min-height: 100px; font-family: 'Asap Condensed';">
+
+                    <mat-panel-title style="font-size: 20px; display: inline;">
+                        <div class="title-content">
+                            <img src="https://img.icons8.com/fluent/48/000000/conference.png" />
+                            {{conf.title}}
+                        </div>
+
+                    </mat-panel-title>
+                    <mat-panel-description style="max-width: 20%; padding-top: 1%;">
+                        <fa-icon [icon]="faCalendarAlt"></fa-icon>
+                        {{conf.datedebut | date }} - {{conf.datefin | date }}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <div class="content" style="display: block; font-family: 'Asap Condensed';">
+                    {{conf.description}}
+                </div>
+
+                <mat-action-row>
+                    <button mat-button (click)="navigateToRoute('main/conferences/' + conf.title, conf)"
+                        color="primary">More info</button>
+                </mat-action-row>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</div>
