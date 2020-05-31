@@ -19,6 +19,8 @@ import { SubmitAbstractComponent } from './submit-abstract/submit-abstract.compo
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UpdatePropositionComponent } from './author/dialogs/update-proposition/update-proposition.component';
 import { DeletePropositionComponent } from './author/dialogs/delete-proposition/delete-proposition.component';
+import { ChairModule } from './chair/chair.module';
+import { ChairComponent } from './chair/chair.component';
 
 
 
@@ -47,6 +49,7 @@ import { DeletePropositionComponent } from './author/dialogs/delete-proposition/
     FontAwesomeModule,
     MaterialModule,
     AdminModule,
+    ChairModule,
     FlexLayoutModule,
     ReactiveFormsModule
   ],

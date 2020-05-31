@@ -17,6 +17,9 @@ import { ConferenceInfoComponent } from './main/conference-info/conference-info.
 import { SubmitAbstractComponent } from './main/submit-abstract/submit-abstract.component';
 import { AdminMainComponent } from './main/admin/admin-main/admin-main.component';
 import { AdminAssignConfComponent } from './main/admin/admin-assign-conf/admin-assign-conf.component';
+import { ChairComponent } from './main/chair/chair.component';
+import { ChairMainComponent } from './main/chair/chair-main/chair-main.component';
+import { ChairUsersComponent } from './main/chair/chair-users/chair-users.component';
 
 
 
@@ -42,6 +45,18 @@ const routes: Routes = [
           {
             path: 'assign', component: AdminAssignConfComponent
           }
+        ]
+      },
+      {
+        path: 'chair',
+        component: ChairComponent,
+        children: [
+          {
+            path: 'home', component: ChairMainComponent
+          },
+          {
+            path: 'chairUsers', component: ChairUsersComponent
+          },
         ]
       },
       {

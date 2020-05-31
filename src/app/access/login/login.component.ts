@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
             break;
           }
           case this.isChair(): {
-            this.router.navigateByUrl("/main/chair");
+            this.router.navigateByUrl("/main/chair/home");
             break;
           }
           default: {
