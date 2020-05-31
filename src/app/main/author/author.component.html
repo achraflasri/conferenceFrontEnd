@@ -1,30 +1,42 @@
-<div *ngIf="isAuthor()" class="container">
-    <h1 class="mat-display-3">Mes sessions : </h1>
-    <div class="row">
-        <div *ngFor="let prop of propositions" style="margin-bottom: 10px;" class="col-lg-4 col-md-6 col-sm-12">
-            <mat-card style="margin: 15px;" class="example-card">
-                <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{prop.titre}}</mat-card-title>
-                    <mat-card-subtitle>Session Title</mat-card-subtitle>
-                </mat-card-header>
-                <img mat-card-image src="assets/img/sessionImg.jpg">
-                <mat-card-content>
-                    <p>
-                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    </p>
-                </mat-card-content>
-                <mat-card-actions>
-                    <button style="margin-left: 10px;" mat-raised-button color="primary"
-                        (click)="onUpdate(prop, prop.id)">Update</button>
-                    <button style="margin-left: 5px;" mat-raised-button color="warn"
-                        (click)="onDelete(prop.id)">Delete</button>
-                    <button style="margin-left: 40px;" *ngIf="prop.status==false" mat-stroked-button
-                        color="warn">Pending</button>
-                    <button style="margin-left: 40px;" *ngIf="prop.status==true" mat-stroked-button
-                        color="primary">Accepted</button>
-                </mat-card-actions>
-            </mat-card>
+<div *ngIf="isAuthor()" class="container pt-5 pb-5">
+    <div fxLayout="column" fxLayoutAlign="space-around center">
+        <div style="width: 100%;">
+            <div style="text-align: center;">
+                <h1 class="mat-display-3">Mes propositions : </h1>
+            </div>
+            <div style="text-align: center;">
+                <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+            </div>
+
+            <div class="row">
+                <div *ngFor="let prop of propositions" style="margin-bottom: 10px;" class="col-lg-4 col-md-6 col-sm-12">
+
+                    <mat-card style="margin: 15px;" class="example-card">
+                        <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title>{{prop.titre}}</mat-card-title>
+                            <mat-card-subtitle>Session Title</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image src="assets/img/sessionImg.jpg">
+                        <mat-card-content>
+                            <p>
+                                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from
+                                Japan.
+                            </p>
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button style="margin-left: 10px;" mat-raised-button color="primary"
+                                (click)="onUpdate(prop, prop.id)">Update</button>
+                            <button style="margin-left: 5px;" mat-raised-button color="warn"
+                                (click)="onDelete(prop.id)">Delete</button>
+                            <button style="margin-left: 40px;" *ngIf="prop.status==false" mat-stroked-button
+                                color="warn">Pending</button>
+                            <button style="margin-left: 40px;" *ngIf="prop.status==true" mat-stroked-button
+                                color="primary">Accepted</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -59,3 +59,9 @@ table {
 .mat-header-cell:nth-child(7){
   flex: 0 0 7%;
 }
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: rgb(28, 109, 175);
+} 

@@ -12,7 +12,7 @@
                     </div>
 
                     <mat-card-content>
-                        <mat-form-field style="width: 300px;">
+                        <mat-form-field style="width: 400px;">
                             <mat-label>Select a conference</mat-label>
                             <div>
                                 <mat-select formControlName="idConf" [(value)]="confSelectedID">
@@ -23,17 +23,22 @@
                             </div>
 
                         </mat-form-field>
-                        <p>You selected: {{confSelectedID}}</p>
+                        <p></p>
+                        <!-- <p>You selected: {{confSelectedID}}</p> -->
 
-                        <mat-form-field>
+                        <mat-form-field style="width: 400px;">
                             <mat-label>Select a chair</mat-label>
                             <mat-select formControlName="idUser" [(value)]="chairSelectedID">
                                 <mat-option *ngFor="let user of sortUserList" value={{user.id}}>
-                                    {{user.first_name}}
+                                    <div *ngIf="user.role == 'CHAIR' ">
+                                        {{user.first_name}} | {{user.role}}
+                                    </div>
+
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>
-                        <p>You selected: {{chairSelectedID}}</p>
+                        <p></p>
+                        <!-- <p>You selected: {{chairSelectedID}}</p> -->
                     </mat-card-content>
                     <mat-card-actions style="text-align: center;">
                         <button mat-stroked-button color="primary" type="submit">Assigner</button>
@@ -41,5 +46,10 @@
                 </mat-card>
             </form>
         </div>
+    </div>
+    <div style="text-align: center; margin: 30px;">
+        <a mat-button color="primary" href="/main/admin/home"
+            style="font-family: 'Asap Condensed';font-size: 20px;">Return
+            to main</a>
     </div>
 </div>

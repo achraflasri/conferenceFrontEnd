@@ -30,6 +30,7 @@ ul li{
  }
 
  .header__nav-links-box {
+  
    position: absolute;
    left: 30%;
    top: 60%;
@@ -48,7 +49,7 @@ ul li{
    text-align: center;
  }
  .nav-utilities-icon {
-   color: rgb(28, 109, 175);
+   color: rgb(28, 109, 175); 
  }
  .nav-utilities-icon:hover {
   color: rgb(27, 139, 231);
@@ -63,6 +64,8 @@ ul li{
   }
   a:link,
   a:visited {
+    font-family: 'Asap Condensed';
+    font-size: 24px;
     text-decoration: none;
     color: rgb(28, 109, 175);
   } 
@@ -72,9 +75,6 @@ ul li{
   } */
 
 
-
-
-  
   .logo_box{
     margin-right: 10px;
     
@@ -117,7 +117,12 @@ ul li{
   }
   ul li {
     display: block;
+    height: 27px;
   }
+  a:link,
+  a:visited {
+    font-size: 20px;
+  } 
   .header__nav-utilities-box {
     left: 84%;
     position: absolute;

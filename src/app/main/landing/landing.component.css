@@ -8,7 +8,7 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 1.7;
-    color: #777;
+    color: rgb(0, 0, 0);
     box-sizing: border-box;
 }
 .hero-box{
@@ -59,6 +59,10 @@
     animation-name: moveInRight;
     animation-duration: 1.5s;
     animation-timing-function: ease-out;
+}
+p{
+    font-family: 'Asap Condensed';
+    font-size: 22px;
 }
 
 @keyframes moveInLeft {

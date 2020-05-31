@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConferenceService } from 'src/app/conference.service';
 import { Router } from '@angular/router';
+import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 interface IConference {
   title: string,
@@ -16,7 +17,7 @@ interface Conferences1 {
   description: string;
   datedebut: Date;
   datefin: Date;
-}
+} 
 
 @Component({
   selector: 'app-find-a-conference',
@@ -24,7 +25,7 @@ interface Conferences1 {
   styleUrls: ['./find-a-conference.component.css']
 })
 export class FindAConferenceComponent implements OnInit {
-
+  faCalendarAlt = faCalendarAlt;
   age: number = 15;
   users: any;
   showSpinner: boolean = true;

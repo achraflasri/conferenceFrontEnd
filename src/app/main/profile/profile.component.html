@@ -5,8 +5,10 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header card-header-danger">
-                            <h4 class="card-title">Edit Profile</h4>
-                            <p class="card-category">Complete your profile</p>
+                            <h4 class="card-title" style="font-family: 'Asap Condensed';font-size: 24px;">Edit Profile
+                            </h4>
+                            <p class="card-category" style="font-family: 'Asap Condensed';font-size: 18px;">Complete
+                                your profile</p>
                         </div>
                         <div class="card-body">
                             <form>
@@ -67,6 +69,8 @@
                                         </mat-form-field>
                                     </div>
                                 </div>
+                                <p></p>
+                                <p></p>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label>About Me</label>
@@ -75,8 +79,10 @@
                                         </mat-form-field>
                                     </div>
                                 </div>
-                                <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update
-                                    Profile</button>
+                                <div style="text-align: center;" class="redirection">
+                                    <button mat-raised-button type="submit" class="btn btn-primary pull-right">Update
+                                        Profile</button>
+                                </div>
                                 <div class="clearfix"></div>
                             </form>
                         </div>
@@ -84,18 +90,32 @@
                 </div>
                 <div class="col-md-4">
                     <div class="card card-profile">
-                        <div class="card-avatar">
-                            <a href="javascript:void(0)">
-                                <img class="img" style="width: 120px; height: 80px;" src="assets/img/sessionImg.jpg" />
-                            </a>
-                        </div>
                         <div class="card-body">
-                            <h6 class="card-category text-gray">Author</h6>
-                            <h4 class="card-title">{{user.first_name}} {{user.last_name}}</h4>
-                            <p class="card-description">
+                            <div style="text-align: center;" class="redirection">
+                                <fa-icon [icon]="faUser" size="6x" secondaryColor="blue"></fa-icon>
+                                <p></p>
+                                <p></p>
+                                <p></p>
+                                <h1 class="card-title">{{user.first_name}} {{user.last_name}}</h1>
+                                <h3 *ngIf="isAuthor()" class="card-category text-gray">Author</h3>
+                                <h3 *ngIf="isAdmin()" class="card-category text-gray">Admin</h3>
+                                <h3 *ngIf="isReviewer()" class="card-category text-gray">Reviewer</h3>
+                                <h3 *ngIf="isChair()" class="card-category text-gray">Chair</h3>
 
-                            </p>
-                            <a href="main/author" class="btn btn-danger btn-round">View my Propositions</a>
+                                <p class="card-description">
+
+                                </p>
+
+                                <div *ngIf="isAuthor()">
+                                    <a href="main/author" class="btn btn-primary btn-round">View my Propositions</a>
+                                </div>
+                                <div *ngIf="isAdmin()">
+                                    <a href="main/admin/home" class="btn btn-primary btn-round">Go to Main</a>
+                                </div>
+                            </div>
+
+
+
                         </div>
                     </div>
                 </div>

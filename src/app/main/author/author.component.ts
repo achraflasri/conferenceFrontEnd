@@ -27,13 +27,15 @@ export class AuthorComponent implements OnInit {
     private conferenceService: ConferenceService,
     private router: Router,
     public dialog: MatDialog) {
+    this.getPropositions();
 
   }
 
   propositions: Proposition[];
+  showSpinner: boolean = true;
 
   ngOnInit(): void {
-    this.getPropositions();
+
   }
 
   isAuthor() {
@@ -42,12 +44,15 @@ export class AuthorComponent implements OnInit {
 
   getPropositions() {
     console.log(this.propositionService.getProposition(this.authenticationService.loadUser().id));
-    this.propositionService.getProposition(this.authenticationService.loadUser().id).subscribe(data => {
-      this.propositions = data['_embedded']['propositions'];
-    },
-      (error: HttpErrorResponse) => {
-        console.log(error.name + ' ' + error.message);
-      });
+    setTimeout(() => {
+      this.propositionService.getProposition(this.authenticationService.loadUser().id).subscribe(data => {
+        this.propositions = data['_embedded']['propositions'];
+      },
+        (error: HttpErrorResponse) => {
+          console.log(error.name + ' ' + error.message);
+        });
+      this.showSpinner = false;
+    }, 1);
   }
   onDelete(idProp: number) {
     console.log(idProp);
