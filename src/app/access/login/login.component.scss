@@ -47,3 +47,8 @@
     a{
       color: #7986CB;
     }
+    @media(max-width: 800px) {
+      .outer {
+          margin-top: 145px;
+      }
+  }

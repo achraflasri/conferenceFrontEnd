@@ -23,7 +23,7 @@
     max-width: 400px;
     position: absolute;
     transform: translate(-50%, -50%);
-    left: 50%;top: 40%;
+    left: 50%;top: 50%;
   }
   .form_content{
     margin: 50px 30px;
@@ -47,3 +47,8 @@
     a{
       color: #7986CB;
     }
+    @media(max-width: 800px) {
+      .outer {
+          margin-top: 145px;
+      }
+  }

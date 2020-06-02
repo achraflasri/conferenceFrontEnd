@@ -14,3 +14,8 @@
 body {
     font-family: 'Asap Condensed';
 }
+@media(max-width: 800px) {
+    .outer {
+        margin-top: 145px;
+    }
+}
